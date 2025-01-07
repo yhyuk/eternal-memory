@@ -30,8 +30,7 @@ class TributeService(
             createdAt = LocalDateTime.now()
         )
 
-        val save = tributeLetterRepository.save(tributeLetterEntity)
-        println("SAVE : $save")
+        tributeLetterRepository.save(tributeLetterEntity)
     }
 
     // 클라이언트 IP 추출 메소드
