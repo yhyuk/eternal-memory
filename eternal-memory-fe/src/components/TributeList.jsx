@@ -10,7 +10,7 @@ const TributeList = () => {
     // 게시글 목록
     useEffect(() => {
         axios
-            .get("http://localhost:8080")
+            .get("https://memorialspace.shop/api")
             .then((response) => {
                 setLetters(response.data);
             })
@@ -30,7 +30,7 @@ const TributeList = () => {
         const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24)); 
     
         if (diffMinutes < 60) {
-            if (diffMinutes === 0) {
+            if (diffMinutes <= 0) {
                 return "방금전";
             }
 
@@ -113,25 +113,40 @@ const TributeSection = styled.section`
     @media (min-width: 768px) {
         max-width: 500px;
     }
-
-    @media (min-width: 768px) {
-        width: 500px;
-    }
 `;
 
 const Message = styled.div`
     margin-bottom: 12px;
     margin-top: 6px;
+
+    @media (max-width: 767px) {
+        font-size: 14px;
+    }
 `
 
 const ProfileContainer = styled.div`
     display: flex;
     justify-content: space-between;
     margin-bottom: 6px;
+
+    @media (max-width: 767px) {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
 `
 
 const ProfileBox = styled.div`
     display: flex;
+
+    svg {
+        width: 18px;
+        height: 18px;
+
+        @media (max-width: 767px) {
+            width: 14px;
+            height: 14px;
+        }
+    }
 `
 
 const ProfileNickname = styled.div`

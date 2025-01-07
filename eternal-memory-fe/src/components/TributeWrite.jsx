@@ -51,9 +51,9 @@ const TributeWrite = () => {
         }
 
         axios
-            .post(`http://localhost:8080`, data)
+            .post(`https://memorialspace.shop/api`, data)
             .then((response) => {
-                window.location.href = "http://localhost:3000";
+                window.location.href = "https://memorialspace.shop";
             })
             .catch((error) => {
                 alert('등록 실패:', error);
@@ -110,7 +110,6 @@ const StyledTextarea = styled.textarea`
     width: 100%;
     height: 150px;
     padding-top: 10px;
-    padding-left: 10px;
     font-size: 16px;
     font-family: 'NanumMyeongjo';
     border: 1px solid #ddd;
@@ -126,7 +125,6 @@ const CharacterCount = styled.div`
     margin-top: 10px;
     font-size: 14px;
     width: 100%;
-    padding-left: 10px;
     color: #666;
     text-align: right;
 `;
