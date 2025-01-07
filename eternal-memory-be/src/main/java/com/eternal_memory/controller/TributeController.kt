@@ -6,15 +6,12 @@ import com.eternal_memory.service.TributeService
 import jakarta.servlet.http.HttpServletRequest
 import lombok.RequiredArgsConstructor
 import lombok.extern.slf4j.Slf4j
-import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @Slf4j
 @RequiredArgsConstructor
+@RequestMapping("/api")
 @RestController
 class TributeLetterController(
     private val tributeService: TributeService
@@ -22,7 +19,7 @@ class TributeLetterController(
     @get:GetMapping
     val lottoNumbers: ResponseEntity<List<TributeLetterResponse>>
         get() {
-            val letters = tributeService.tributeLetter ?: emptyList()
+            val letters = tributeService.tributeLetter
             return ResponseEntity.ok(letters)
         }
 
