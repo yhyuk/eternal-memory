@@ -6,30 +6,27 @@ const Header = () => {
         <HeaderContainer>
             <Title>
                 <span>
-                    제주항공 여객기 사고 온라인 분향소
+                    무안공항 온라인 분향소
                 </span>
             </Title>
             <Content1>
-                제주항공 여객기 사고로
+                무안공항 여객기 사고로
                 <br />
                 고인이 되신 분들의 명복을 빕니다.
             </Content1>
-            <Content2>말로는 다 표현할 수 없을 유가족들의 슬픔에 깊은 위로를 전합니다.</Content2>
-            <Subtitle>사랑하는 사람을 추모하는 공간입니다.</Subtitle>
-            <Image src="/img-flower.png" alt="Flower" />
+            <Content2>유가족분들께 작은 위로가 되길 바랍니다.</Content2>
+            <Image src="/flower.png" alt="Flower" />
         </HeaderContainer>
-
     );
 };
 
 export default Header;
 
 const HeaderContainer = styled.header`
-    background-color: #f8f8f8;
+    background-color: #d8d2cb;
     padding-top: 20px;
     text-align: center;
     border-bottom: 2px solid #ddd;
-    font-family: 'NanumMyeongjo';
 `;
 
 const Title = styled.h1`
@@ -68,7 +65,9 @@ const Content1 = styled.p`
 
     @media (max-width: 767px) {
         margin: 0;
-        font-size: 24px;
+        font-size: 22px;
+        margin-top: 12px;
+        margin-bottom: 12px;
     }
 `
 
@@ -78,19 +77,12 @@ const Content2 = styled.p`
 
     @media (max-width: 767px) {
         margin: 0;
-        font-size: 24px;
+        font-size: 16px;
     }
 `
-
-const Subtitle = styled.p`
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #777;
-`;
-
 const Image = styled.img`
     vertical-align: top;
-    max-width: 100%;
+    max-width: 480px;
 
     @media (max-width: 767px) {
         width: 80%;

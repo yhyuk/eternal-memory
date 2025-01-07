@@ -1,16 +1,19 @@
 import React from 'react';
 import Header from '../components/Header';
 import TributeList from '../components/TributeList';
-import MessageButton from '../components/MessageButton';
+import styled from 'styled-components';
 
 const HomePage = () => {
   return (
-    <div>
+    <Container>
       <Header />
       <TributeList />
-      <MessageButton />
-    </div>
+    </Container>
   );
 };
 
 export default HomePage;
+
+const Container = styled.div`
+    font-family: 'NanumMyeongjo';
+`
