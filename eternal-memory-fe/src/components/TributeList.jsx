@@ -22,7 +22,10 @@ const TributeList = () => {
     // 날짜 포맷
     const formatTimeAgo = (createdAt) => {
         const now = new Date();
-        const createdDate = new Date(createdAt);
+        const createdDate = new Date(createdAt + 'Z'); // UTC로 변환
+
+        console.log("createAt = ", createdAt)
+        console.log("createdDate = ", createdDate)
     
         const diffMs = now - createdDate; 
         const diffMinutes = Math.floor(diffMs / (1000 * 60)); 
@@ -35,7 +38,11 @@ const TributeList = () => {
             }
 
             return `${diffMinutes}분 전`;
-        } else if (diffHours < 24 && now.toDateString() === createdDate.toDateString()) {
+        } else if (diffHours < 24 && (
+            now.getFullYear() === createdDate.getFullYear() &&
+            now.getMonth() === createdDate.getMonth() &&
+            now.getDate() === createdDate.getDate()
+        )) {
             return `${diffHours}시간 전`;
         } else {
             return `${diffDays}일 전`;
