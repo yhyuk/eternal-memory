@@ -33,13 +33,13 @@ class TributeService(
         tributeLetterRepository.save(tributeLetterEntity)
     }
 
-    // 클라이언트 IP 추출 메소드
     private fun getClientIp(request: HttpServletRequest): String? {
-        var ipAddress = request.getHeader("X-Forwarded-For")
-        if (ipAddress == null || ipAddress.isEmpty() || "unknown".equals(ipAddress, ignoreCase = true)) {
-            ipAddress = request.remoteAddr
+        val ipAddress = request.getHeader("X-Forwarded-For")?.split(",")?.firstOrNull()?.trim()
+        return if (ipAddress.isNullOrEmpty() || "unknown".equals(ipAddress, ignoreCase = true)) {
+            request.remoteAddr
+        } else {
+            ipAddress
         }
-        return ipAddress
     }
 
 }
